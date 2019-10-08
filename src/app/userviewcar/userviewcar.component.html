@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+      <a class="nav-link" routerLink="/userhome">Home</a>
+      </li>
+      <li>
+        <a class="nav-link" routerLink="/search1">Searchcar</a>
+      </li>
+      <li>
+          <a class="nav-link" routerLink="/orderd">OrderDetails</a>
+        </li>
+      <li>
+        <a class="nav-link" routerLink="/">Logout</a>
+      </li>
+    </ul>
+    
+    </nav>
+<div class="container margin-top-sm margin-bottom-sm">
+  <h2>See our vehicles</h2>
+    </div>
+<div *ngFor="let data of mydata"> 
+  <div class="row"></div>
+  <div class="card-columns p-3">
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="row no-gutters">
+          <div class="col-12 col-lg-3 col-md-4 col-sm-6 mb-3 p-2"> 
+            <img src="http://localhost:5000{{data.cpicture}}" class="card-img" alt="" > 
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h4 class="card-title">{{data.cname}}</h4>
+              <p class="card-text">Model {{data.cmodel}}<p>
+                <h5 class="card-text"> ₹ {{data.crent}}per 1 day</h5>
+                <h4 class="card-text">{{data.cfuel}}</h4>
+                <h4>Description</h4><br>
+                <h5 class="card-text">{{data.cdesc}}</h5>
+                <tr><td><input type="button" class="btn btn-info" (click)="changeText()" (click)="bookcar()"
+                  value="{{text}}">
+                 </td></tr>
+</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div> 
+  
+   

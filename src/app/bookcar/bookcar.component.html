@@ -1,0 +1,79 @@
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+		<ul class="navbar-nav">
+		  <li class="nav-item active">
+		  <a class="nav-link" routerLink="/userhome">Home</a>
+		  </li>
+		  <li>
+			<a class="nav-link" routerLink="/search1">Searchcar</a>
+		  </li>
+		  <li>
+			  <a class="nav-link" routerLink="/orderd">OrderDetails</a>
+			</li>
+		  <li>
+			<a class="nav-link" routerLink="/">Logout</a>
+		  </li>
+		</ul>
+		
+		</nav>
+  <form (ngSubmit)=onSubmit(f) #f="ngForm">
+<div *ngFor="let data of mydata">
+	<h2>Rental options for {{data.cname}}</h2>
+	<ul><li>Your Adhar id
+			<input type="text" 
+			class="form-control" 
+			name="cadhar"
+
+			ngModel
+			required ></li>
+			<li>Select Model:
+					<select type="text" 
+					class="form-control" 
+					name="cmodel2" 
+					ngModel
+					required #astatusset>
+					  <option selected>Choose...</option>
+					  <option name="cmodel2" value="Baleno">Baleno</option>
+					  <option name="cmodel2" value="Ertiga">Ertiga</option>
+
+					  <option name="cmodel2" value="Vitara Brezza">Vitara Brezza</option>
+
+					  <option name="cmodel2" value="Wagon R">Wagon R</option>
+
+					  <option name="cmodel2" value="Suzuki Dzire">Suzuki Dzire</option>
+
+					  <option name="cmodel2" class="text-success" value="2">Completed</option>
+					</select>
+				</li>
+		<!-- <li>Model: <input 
+			type="text" 
+			class="form-control" 
+			name="cmodel2" 
+			ngModel
+			required></li> -->
+		<li>price/day: {{data.crent}} </li>
+		<li>Fuel: {{data.cfuel}}</li>
+		<li>Choose the from date 
+				<input 
+				type="date" 
+				class="form-control" 
+				name="fdate" 
+				ngModel
+				required></li>
+				<li>To date  <input 
+					type="date" 
+					class="form-control" 
+					ngModel
+					name="tdate"
+					required></li>
+					
+		<li>Days<input type="number" required min="1" [(ngModel)]="data.cno" /></li>
+		
+	</ul>  <input type="reset" class="btn btn-danger" value="Clear"><input type="submit" (click)="rent()" class="btn btn-primary" value="select">
+
+	<!-- <input type="submit" (click)="rent" class="btn btn-primary" value="Rent it !"> -->
+
+	<br>
+  
+  </div>
+</form>

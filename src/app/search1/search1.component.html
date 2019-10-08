@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <ul class="navbar-nav">
+    <li class="nav-item active">
+      <a class="nav-link" routerLink="/adminpage">Home</a>
+    </li>
+    <li>
+        <a class="nav-link" routerLink="/search1">Searchcar</a>
+      </li>
+      <li>
+        <a class="nav-link" routerLink="/">Logout</a>
+      </li>
+  </ul>
+
+</nav>
+<form (ngSubmit)=onSubmit(f) #f="ngForm">
+  <table class="table">
+    <tr><td>CarModel</td><td><input type="text" class="form-control" name="cmodel" ngModel></td></tr>
+    <tr><td></td><td><input type="submit" class="btn btn-info" value="Search"></td></tr>
+  </table>
+</form>
+
+<table class="table">
+  <div *ngFor="let data of mydata">
+    <tr><td></td><td><input type="hidden" name="id" id="" [(ngModel)]="data._id"></td></tr>
+    <tr><td>Carname</td><td><input type="text" class="form-control" name="cname"[(ngModel)]='data.cname'></td></tr>
+    <tr><td>Model</td><td><input type="text" class="form-control" name="cmodel" [(ngModel)]='data.cmodel'></td></tr>
+    <tr><td>Rent</td><td><input type="text" class="form-control" name="crent" [(ngModel)]='data.crent'></td></tr>
+    <tr><td>Description</td><td><input type="textarea" class="form-control" name="cdesc" [(ngModel)]='data.crent'></td></tr>
+    <tr><td>Fuel</td><td><input type="text" class="form-control" name="cfuel" ngModel></td></tr>
+  	<button (click)="rent(data)">Rent it !</button>
+	<button value="clear" (click)="cancelRental(data)">Cancel rental</button>
+  </div>
+  </table>

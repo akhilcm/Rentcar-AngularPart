@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <ul class="navbar-nav">
+    <li class="nav-item active">
+      <a class="nav-link" routerLink="/adminpage">Home</a>
+    </li>
+    <li class="nav-item active">
+      <a class="nav-link" routerLink="/addcar">Addcar</a>
+    </li>
+    <li class="nav-item active">
+        <a class="nav-link" routerLink="/viewcar">Viewcar</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/search">Searchcar</a>
+      </li>
+      <li class="nav-item active">
+          <a class="nav-link" routerLink="/adminviewbookcar">RentelHistory</a></li>
+          <li class="nav-item active">
+              <a class="nav-link" routerLink="/vfeed">Feedback</a></li>
+
+  </ul>
+  <button class="float-right btn btn-light" (click)="logout()">LogOut</button>
+</nav>
+<form (ngSubmit)=onSubmit(f) #f="ngForm">
+  <table class="table">
+    <tr><td>CarModel</td><td><input type="text" class="form-control" name="cmodel" ngModel></td></tr>
+    <tr><td></td><td><input type="submit" class="btn btn-info" value="Search"></td></tr>
+  </table>
+</form>
+
+<table class="table">
+  <div *ngFor="let data of mydata">
+    <tr><td></td><td><input type="hidden" name="id" id="" [(ngModel)]="data._id"></td></tr>
+    <tr><td>Carname</td><td><input type="text" class="form-control" name="cname"[(ngModel)]='data.cname'></td></tr>
+    <tr><td>Model</td><td><input type="text" class="form-control" name="cmodel" [(ngModel)]='data.cmodel'></td></tr>
+    <tr><td>Rent</td><td><input type="text" class="form-control" name="crent" [(ngModel)]='data.crent'></td></tr>
+    <tr><td>Description</td><td><input type="textarea" class="form-control" name="cdesc" [(ngModel)]='data.cdesc'></td></tr>
+    <tr><td>Fuel</td><td><input type="text" class="form-control" name="cfuel" [(ngModel)]='data.cfuel'></td></tr>
+    <tr><td>Picture</td><td><input type="text" class="form-control" name="cpicture" [(ngModel)]='data.cpicture'></td>
+    </tr>
+    <tr><td><input type="button" class="btn btn-info" (click)="deletecar()" value="Delete"></td></tr>
+    <tr><td><input type="button" class="btn btn-info" (click)="updatecar()" value="Update"></td></tr>
+
+  </div>
+</table>
